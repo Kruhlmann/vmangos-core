@@ -1,10 +1,10 @@
 ### Software to use
-OS: Ubuntu 18.04
-DB: 10.1.48-MariaDB-1~xenial
-ACE: libace 6.3.3
-TBB: libtbb 4.4
-Cmake: 3.5.1
-Compiler: gcc 5.4
+- OS: Ubuntu 18.04
+- DB: 10.1.48-MariaDB-1~xenial
+- ACE: libace 6.3.3
+- TBB: libtbb 4.4
+- Cmake: 3.5.1
+- Compiler: gcc 5.4
 
 ### Currently supported builds
 - 1.12.1.5875+
