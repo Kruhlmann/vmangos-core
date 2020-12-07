@@ -1,0 +1,79 @@
+version: '3'
+
+services:
+    vmangos:
+        image: vmangos
+        build:
+            context: .
+            dockerfile: docker/Dockerfile
+
+    vmangosd:
+        image: vmangos
+        container_name: vmangosd
+        command: /mangosd
+        restart: on-failure
+        networks:
+            - vmangos_internal
+        depends_on:
+            - realmd
+        volumes:
+            - ./cnf:/opt/server/etc
+
+    realmd:
+        image: vmangos
+        container_name: realmd
+        command: /realmd
+        restart: on-failure
+        networks:
+            - vmangos_internal
+        depends_on:
+            - characters_db
+            - mangos_db
+            - logs_db
+            - realmd_db
+        volumes:
+            - ./cnf:/opt/server/etc
+
+    characters_db:
+        image: mariadb:10.1.48-bionic
+        container_name: characters_db
+        environment:
+            - MYSQL_ROOT_PASSWORD=characers
+            - MYSQL_DATABASE=characters
+        restart: on-failure
+        networks:
+            - vmangos_internal
+
+    mangos_db:
+        image: mariadb:10.1.48-bionic
+        container_name: mangos_db
+        environment:
+            - MYSQL_ROOT_PASSWORD=mangos
+            - MYSQL_DATABASE=mangos
+        restart: on-failure
+        networks:
+            - vmangos_internal
+
+    logs_db:
+        image: mariadb:10.1.48-bionic
+        container_name: logs_db
+        environment:
+            - MYSQL_ROOT_PASSWORD=logs
+            - MYSQL_DATABASE=logs
+        restart: on-failure
+        networks:
+            - vmangos_internal
+
+    #docker exec -i $(docker-compose ps -q realmd_db) mysql -uroot --password=realmd realmd < sql/logon.sql
+    realmd_db:
+        image: mariadb:10.1.48-bionic
+        container_name: realmd_db
+        environment:
+            - MYSQL_ROOT_PASSWORD=realmd
+            - MYSQL_DATABASE=realmd
+        restart: on-failure
+        networks:
+            - vmangos_internal
+
+networks:
+    vmangos_internal:
