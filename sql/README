@@ -1,0 +1,7 @@
+# SQL migrations system
+
+- You will find all databases you need at https://github.com/the-hyjal-project/databases
+- Every database in the "database" repository are up to date with "old_migrations".
+- You will have to apply every migration from "migrations", starting from the lowest number, to be even with the Hyjal-Live-Server
+- After a new world DB will be uploaded, all migrations from "migrations" will be moved to "old_migrations"
+- If you are creating a new migration, make sure you name it correctly with the decleration of the specific database and choosing a continuous number
