@@ -193,7 +193,16 @@ extern int main(int argc, char **argv)
     sLog.Initialize();
 
     sLog.outString("Core revision: %s [realm-daemon]", _FULLVERSION);
-    sLog.outString("<Ctrl-C> to stop.\n" );
+    sLog.outString("<Ctrl-C> to stop.");
+    sLog.outString("");
+    sLog.outString("██╗  ██╗██╗   ██╗   ██╗ █████╗ ██╗");
+    sLog.outString("██║  ██║╚██╗ ██╔╝   ██║██╔══██╗██║");
+    sLog.outString("███████║ ╚████╔╝    ██║███████║██║");
+    sLog.outString("██╔══██║  ╚██╔╝██   ██║██╔══██║██║");
+    sLog.outString("██║  ██║   ██║ ╚█████╔╝██║  ██║███████╗");
+    sLog.outString("╚═╝  ╚═╝   ╚═╝  ╚════╝ ╚═╝  ╚═╝╚══════╝");
+    sLog.outString("");
+    sLog.outString("The Hyjal Project : https://github.com/the-hyjal-project/core");
     sLog.outString("Using configuration file %s.", cfg_file);
 
     ///- Check the version of the configuration file
