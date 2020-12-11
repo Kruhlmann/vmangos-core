@@ -15,7 +15,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-project(MaNGOS)
+project(Hyjal)
 
 # CMake policies
 cmake_minimum_required(VERSION 3.1)
@@ -29,7 +29,7 @@ option(DEBUG "Debug mode" 0)
 set(SUPPORTED_CLIENT_BUILD "CLIENT_BUILD_1_12_1" CACHE STRING "Client version the core will support")
 option(USE_STD_MALLOC "Use standard malloc instead of TBB" 0)
 option(TBB_DEBUG "Use TBB debug librairies" 0)
-option(USE_ANTICHEAT "Use anticheat" 0)
+option(USE_ANTICHEAT "Use anticheat" 1)
 option(SCRIPTS "Compile scripts" 1)
 option(USE_EXTRACTORS "Compile extractors" 0)
 option(USE_LIBCURL "Compile with libcurl for email support" 0)
