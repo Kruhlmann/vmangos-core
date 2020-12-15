@@ -1,3 +1,14 @@
+# Map data
+data/maps
+# Honor logs
+data/honor
+# Server logs
+data/logs
+# Personal configuration files
+data/cnf
+
+!.gitkeep
+
 #
 # NOTE! Don't add files that are generated in specific
 # subdirectories here. Add them in the ".gitignore" file

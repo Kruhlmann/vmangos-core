@@ -17,7 +17,10 @@ services:
         depends_on:
             - realmd
         volumes:
-            - ./cnf:/opt/server/etc
+            - ./data/cnf:/opt/server/etc
+            - ./data/maps:/opt/server/maps
+            - ./data/logs:/opt/server/logs
+            - ./data/honor:/opt/server/honor
 
     realmd:
         image: vmangos
@@ -32,7 +35,10 @@ services:
             - logs_db
             - realmd_db
         volumes:
-            - ./cnf:/opt/server/etc
+            - ./data/cnf:/opt/server/etc
+            - ./data/maps:/opt/server/maps
+            - ./data/logs:/opt/server/logs
+            - ./data/honor:/opt/server/honor
 
     characters_db:
         image: mariadb:10.1.48-bionic
@@ -43,6 +49,8 @@ services:
         restart: on-failure
         networks:
             - vmangos_internal
+        ports:
+            - "9014:3306"
 
     mangos_db:
         image: mariadb:10.1.48-bionic
@@ -53,6 +61,8 @@ services:
         restart: on-failure
         networks:
             - vmangos_internal
+        ports:
+            - "9013:3306"
 
     logs_db:
         image: mariadb:10.1.48-bionic
@@ -63,6 +73,8 @@ services:
         restart: on-failure
         networks:
             - vmangos_internal
+        ports:
+            - "9012:3306"
 
     #docker exec -i $(docker-compose ps -q realmd_db) mysql -uroot --password=realmd realmd < sql/logon.sql
     realmd_db:
@@ -74,6 +86,8 @@ services:
         restart: on-failure
         networks:
             - vmangos_internal
+        ports:
+            - "9011:3306"
 
 networks:
     vmangos_internal:

@@ -70,16 +70,16 @@ ConfVersion=2010100901
 ###################################################################################################################
 
 RealmID = 1
-DataDir = "."
-LogsDir = ""
-HonorDir = ""
+DataDir = "/opt/server/maps"
+LogsDir = "/opt/server/logs"
+HonorDir = "/opt/server/honor"
 LoginDatabase.Info              = "realmd_db;3306;root;realmd;realmd"
 LoginDatabase.Connections       = 1
 LoginDatabase.WorkerThreads     = 1
 WorldDatabase.Info              = "mangos_db;3306;root;mangos;mangos"
 WorldDatabase.Connections       = 1
 WorldDatabase.WorkerThreads     = 1
-CharacterDatabase.Info          = "characters_db;3306;root;characters;characters"
+CharacterDatabase.Info          = "characters_db;3306;root;characers;characters"
 CharacterDatabase.Connections   = 1
 CharacterDatabase.WorkerThreads = 1
 LogsDatabase.Info               = "logs_db;3306;root;logs;logs"
