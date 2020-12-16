@@ -11,7 +11,7 @@ services:
         image: vmangos
         container_name: vmangosd
         command: /mangosd
-        restart: on-failure
+        restart: always
         networks:
             - vmangos_internal
         depends_on:
@@ -26,7 +26,7 @@ services:
         image: vmangos
         container_name: realmd
         command: /realmd
-        restart: on-failure
+        restart: always
         networks:
             - vmangos_internal
         depends_on:
@@ -76,7 +76,6 @@ services:
         ports:
             - "9012:3306"
 
-    #docker exec -i $(docker-compose ps -q realmd_db) mysql -uroot --password=realmd realmd < sql/logon.sql
     realmd_db:
         image: mariadb:10.1.48-bionic
         container_name: realmd_db
