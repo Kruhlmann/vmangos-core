@@ -91,3 +91,13 @@ that \**\_001\_\**.sql goes in before \*\_002\_\*.sql. Each migration will be
 prefixed with the appropriate database e.g. world\_000\_reserved\_name.sql goes
 in the `mangos` database.
 
+#### Map data
+
+The server needs map files to run, which will be mounted from the
+[data/maps](data/maps) folder. They can be imported as such (assuming cloning in
+current directory).
+
+```sh
+git clone https://github.com/the-hyjal-project/data map_data
+cp -r map_data/data/* data/maps
+```
